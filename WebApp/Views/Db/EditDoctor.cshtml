@@ -1,0 +1,31 @@
+﻿@model WebApp.Models.Doctor
+@using WebApp.ViewModels
+@using WebApp.Models
+
+<h2>Редактирование доктора</h2>
+<form asp-action="EditDoctor" asp-controller="Db" asp-route-DoctorId="@Model.DoctorId">
+    <div asp-validation-summary="All"></div>
+    <p>
+        <label asp-for="Surname">Фамилия</label><br />
+        <input type="text" asp-for="Surname" />
+        <span asp-validation-for="Surname" />
+    </p>
+    <p>
+        <label asp-for="Name">Имя</label><br />
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name" />
+    </p>
+    <p>
+        <label asp-for="Patronymic">Отчество</label><br />
+        <input type="text" asp-for="Patronymic" />
+        <span asp-validation-for="Patronymic" />
+    </p>
+    <p>
+        <label asp-for="Age">Возраст</label><br />
+        <input type="number" asp-for="Age" />
+        <span asp-validation-for="Age" />
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+</form>

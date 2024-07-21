@@ -1,0 +1,21 @@
+﻿@model WebApp.ViewModels.DiagnosisPatient
+@using WebApp.ViewModels
+@using WebApp.Models
+
+<h2>Редактирование информации</h2>
+<form asp-action="EditDiagnosisPatient" asp-controller="Db" asp-route-id="@Model.OldPatientId" asp-route-id0="@Model.OldDiagnosisId">
+    <div asp-validation-summary="All"></div>
+    <p>
+        Пациент <br />
+        @Html.DropDownListFor(model => model.PatientId, ViewBag.Patients as SelectList)
+    </p>
+    <p>
+        Болезнь <br />
+        @Html.DropDownListFor(model => model.DiagnosisId, ViewBag.Diagnoses as SelectList)
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+    @Html.Hidden("OldPatientId", @Model.OldPatientId)
+    @Html.Hidden("OldDiagnosisId", @Model.OldDiagnosisId)
+</form>

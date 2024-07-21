@@ -1,0 +1,27 @@
+﻿@model WebApp.ViewModels.DiagnosisPatient
+
+<h2>Добавление соотношения</h2>
+<form asp-action="CreateDiagnosisPatient" asp-controller="Db">
+    <div asp-validation-summary="All"></div>
+    @*<p>
+        <label asp-for="PatientId">Id пациента</label><br />
+        <input type="text" asp-for="PatientId" />
+        <span asp-validation-for="PatientId" />
+    </p>
+    <p>
+        <label asp-for="DiagnosisId">Id болезни</label><br />
+        <input type="text" asp-for="DiagnosisId" />
+        <span asp-validation-for="DiagnosisId" />
+    </p>*@
+    <p>
+        Пациент <br />
+        @Html.DropDownListFor(model => model.PatientId, ViewBag.Patients as SelectList)
+    </p>
+    <p>
+        Болезнь <br />
+        @Html.DropDownListFor(model => model.DiagnosisId, ViewBag.Diagnoses as SelectList)
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

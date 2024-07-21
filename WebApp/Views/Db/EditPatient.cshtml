@@ -1,0 +1,40 @@
+﻿@model WebApp.ViewModels.PatientViewModel
+@using WebApp.ViewModels
+@using WebApp.Models
+
+<h2>Редактирование пациента</h2>
+<form asp-action="EditPatient" asp-controller="Db" asp-route-PatientId="@Model.PatientId">
+    <div asp-validation-summary="All"></div>
+    <p>
+        <label asp-for="Surname">Фамилия</label><br />
+        <input type="text" asp-for="Surname" />
+        <span asp-validation-for="Surname" />
+    </p>
+    <p>
+        <label asp-for="Name">Имя</label><br />
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name" />
+    </p>
+    <p>
+        <label asp-for="Patronymic">Отчество</label><br />
+        <input type="text" asp-for="Patronymic" />
+        <span asp-validation-for="Patronymic" />
+    </p>
+    <p>
+        <label asp-for="Age">Возраст</label><br />
+        <input type="number" asp-for="Age" />
+        <span asp-validation-for="Age" />
+    </p>
+ @*    <p>
+    <label asp-for="DoctorId">Id доктора</label><br />
+    <input type="text" asp-for="DoctorId" />
+    <span asp-validation-for="DoctorId" />
+    </p>*@
+    <p>
+        Лечащий врач <br />
+        @Html.DropDownListFor(model => model.DoctorId, ViewBag.Doctors as SelectList)
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+</form>

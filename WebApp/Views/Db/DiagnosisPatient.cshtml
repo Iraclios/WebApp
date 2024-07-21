@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApp.Models.Patient>
+@using WebApp.ViewModels
+@using WebApp.Models
+
+<h2>Список больных и болезней</h2>
+<p><a asp-action="CreateDiagnosisPatient">Добавить соответствие</a></p>
+<table class="table">
+    <tr><th>Имя больного</th><th>Название болезни</th><th></th><th></th></tr>
+    @foreach (var item in Model)
+    {
+        foreach (var diagnosis in item.Diagnoses)
+        {
+            <tr>
+                <td>@item.Shortname</td>
+                <td>@diagnosis.Name</td>
+                <td>
+                    <a asp-action="EditDiagnosisPatient" asp-controller="Db" asp-route-id="@item.PatientId" asp-route-id0="@diagnosis.DiagnosisId">Изменить</a>
+                </td>
+                <td>
+                    <form asp-controller="Db" asp-action="DeleteDiagnosisPatient" method="post" asp-route-id="@item.PatientId" asp-route-id0="@diagnosis.DiagnosisId">
+                        <input type="submit" value="Удалить" />
+                    </form>
+                </td>
+            </tr>
+        }
+    }
+</table>

@@ -1,0 +1,19 @@
+﻿@{
+    Dictionary<string, string> d = new Dictionary<string, string>
+            {
+                ["Doctors"] = "Список врачей",
+                ["Patients"] = "Список больных",
+                ["Diagnoses"] = "Список болезней",
+                ["DiagnosisPatient"] = "Список болезней больных"
+            };
+}
+<h2>Список таблиц</h2>
+<table class="table">
+    <tr><th>Имя таблицы</th></tr>
+    @foreach (var item in d)
+    {
+        <tr>
+            <td>@Html.ActionLink(item.Value,item.Key)</td>
+        </tr>
+    }
+</table>

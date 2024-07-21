@@ -1,0 +1,13 @@
+﻿@model WebApp.Models.Diagnosis
+
+<h2>Добавление болезни</h2>
+<form asp-action="CreateDiagnosis" asp-controller="Db">
+    <p>
+        <label asp-for="Name">Название</label><br />
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
